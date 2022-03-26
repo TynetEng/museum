@@ -11,9 +11,9 @@
     <title>Document</title>
 </head>
 <body>
-    <nav>
+    <nav class="">
         <div class="container-fluid">
-            <div class="header shadow-sm">
+            <div class="header shadow-bg">
                 <div class="nav navbar-expand-sm container">
                     <div class="pro">
                         <div class="left">
@@ -155,7 +155,7 @@
         }
 
         /* NAVBAR */
-        nav{
+        .header{
             display: flex;
             align-items: center;
             position: fixed;
@@ -166,10 +166,13 @@
             z-index: 1000px;
             margin: 0;
             justify-content: space-between;
-            background-color: #0061AB;
+            color: #0061AB !important;
+            background-color: white;
+            box-shadow: 0px 0px 10px rgba(black, black, black, 0.4);
+            border-bottom: 4px solid #0061AB;
         }
         h4{
-            color: white !important;
+            color: #0061AB !important;
         }
         .nav{
             padding: 0px !important;
@@ -181,7 +184,7 @@
         }
         .show a{
             font-weight: bold;
-            color: white;
+            color: #0061AB;
         }
         .show a:hover{
             color: rgb(226, 223, 223);

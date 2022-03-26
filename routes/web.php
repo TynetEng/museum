@@ -94,16 +94,14 @@ Route::get('/book-a-visit', function () {
 Route::post('/book-a-visit', function (Request $request) {
     $validateUser = auth()->user()->id;;
     
-    
+    $request->validate([
+        'date'=>"required",
+        'number'=>"required",
+        "code"=>"required",
+    ]);
+            
     try {        
         if($validateUser){
-            
-            $request->validate([
-                'date'=>"required",
-                'number'=>"required",
-                "code"=>"required",
-            ]);
-            
             $visit = Visit::create([
                 'date'=> $request->date,
                 'number'=> $request->number,
@@ -125,15 +123,16 @@ Route::get('/book-a-tourist', function () {
 });
 Route::post('/book-a-tourist', function (Request $request) {
     $validateUser = auth()->user()->id;
+
+    $request->validate([
+        'date'=>"required",
+        'name'=>"required",
+        "code"=>"required",
+        
+    ]);
+
     try {
         if($validateUser){
-            $request->validate([
-                'date'=>"required",
-                'name'=>"required",
-                "code"=>"required",
-                
-            ]);
-        
             $tourist= Tourist::create([
                 'date'=> $request->date,
                 'name'=> $request->name,
@@ -156,14 +155,15 @@ Route::get('/speak', function () {
 });
 Route::post('/speak', function (Request $request) {
     $validateUser = auth()->user()->id;
+
+    $request->validate([
+        'date'=>"required",
+        'name'=>"required",
+        "code"=>"required",
+    ]);
+
     try {
         if($validateUser){
-            $request->validate([
-                'date'=>"required",
-                'name'=>"required",
-                "code"=>"required",
-            ]);
-        
             $speak= Speak::create([
                 'date'=> $request->date,
                 'name'=> $request->name,
@@ -185,15 +185,16 @@ Route::get('/loan', function () {
 });
 Route::post('/loan', function (Request $request) {
     $validateUser = auth()->user()->id;
+
+    $request->validate([
+        'dateBorrow'=>"required",
+        'dateReturn'=>"required",
+        'name'=>"required",
+        "code"=>"required",
+    ]);
+    
     try {
         if($validateUser){
-            $request->validate([
-                'dateBorrow'=>"required",
-                'dateReturn'=>"required",
-                'name'=>"required",
-                "code"=>"required",
-            ]);
-        
             $loan= Loan::create([
                 'dateBorrow'=> $request->dateBorrow,
                 'dateReturn'=> $request->dateReturn,

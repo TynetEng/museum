@@ -110,18 +110,20 @@
                     <h3>Today's Offers</h3>
                     <div class="pear">
                         <div class="pear1 col-sm-3">
-                            <div>
-                                <img src="../image/m9.jpg" alt="">
+                            <div class="tag">
                                 <div>
-                                    <button class="pear-butt1">See Deal</button>
+                                    <img src="../image/m9.jpg" alt="">
+                                    <div>
+                                        <button class="pear-butt1">See Deal</button>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="sub-pear1">
-                                <h5> Trip to Sculpture Room </h5>
-                                <p> From heroes sculpture to activist sculpture</p>
-                            </div>
-                            <div>
-                                <button class="pear-button">See Deal</button>
+                                <div class="sub-pear1">
+                                    <h5> Trip to Sculpture Room </h5>
+                                    <p> From heroes sculpture to activist sculpture</p>
+                                </div>
+                                <div>
+                                    <button class="pear-button">See Deal</button>
+                                </div>
                             </div>
                         </div>
                         <div class="pear1 col-sm-3">
