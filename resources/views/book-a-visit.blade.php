@@ -61,15 +61,6 @@
                     </div>
                 </form>
             </div>
-
-            <div>
-                <div class="alert alert-success">
-                    <strong>Successful</strong>
-                </div>
-                <div class="print">
-                    <button>PRINT</button>
-                </div>
-            </div>
         </div>
     </div>
     <style>
@@ -188,18 +179,6 @@
         }
         .pat3{
             color:#0061AB;
-        }
-
-        .print{
-            text-align: center;
-        }
-        .print button{
-            color: white;
-            background-color: #0061AB;
-            border: 0;
-            padding: 5px 15px;
-            border-radius: 5px;
-            font-weight: bold;
         }
         @media(max-width:760px){
             .parent{

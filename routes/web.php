@@ -89,6 +89,7 @@ Route::post('/signup', function (Request $request) {
 Route::get('/book-a-visit', function () {
     $visit = DB::table('visits')->get();
     $user =  auth()->user()->id;
+
     return view('book-a-visit')->with(['visit'=>$visit, 'user'=>$user]);
 });
 Route::post('/book-a-visit', function (Request $request) {
@@ -108,7 +109,7 @@ Route::post('/book-a-visit', function (Request $request) {
                 'code'=> $request->code,
                 'user_id'=>$validateUser
             ]);
-            return "Successful";
+            return redirect('/print');
         }
     } catch (\Throwable $th) {
         session()->flash('error', 'ERROR');
@@ -141,7 +142,7 @@ Route::post('/book-a-tourist', function (Request $request) {
             ]);
         }
         
-        return "Successful";
+        return redirect('/print');
     } catch (\Throwable $th) {
         session()->flash('error', 'ERROR');
         return redirect('/login');
@@ -170,7 +171,7 @@ Route::post('/speak', function (Request $request) {
                 'code'=> $request->code,
                 'user_id'=>$validateUser
             ]);
-            return "successful";
+            return redirect('/print');
         }
     } catch (\Throwable $th) {
         session()->flash('error', 'ERROR');
@@ -202,7 +203,7 @@ Route::post('/loan', function (Request $request) {
                 'code'=> $request->code,
                 'user_id'=>$validateUser
             ]);
-            return "successful";
+            return redirect('/print');
         }
     } catch (\Throwable $th) {
         session()->flash('error', 'ERROR');
@@ -222,8 +223,12 @@ Route::get('/admin', function () {
     $tourist = Tourist::where('user_id', $validateUser)->get();
     $visit = Visit::where('user_id', $validateUser)->get();
     
-
     return view('admin')->with(['visit'=>$visit, 'speak'=>$speak, 
     'loan'=>$loan, 'tourist'=>$tourist, 'user'=>$user]);
+});
+
+// PRINT RECEIPT
+Route::get('/print', function(){
+    return view('print');
 });
 
