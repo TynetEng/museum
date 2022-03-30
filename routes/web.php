@@ -33,16 +33,14 @@ Route::get('/login', function () {
 });
 
 Route::post('/login', function (Request $request) {
-    try {
-        $request->validate([
-            'email'=>"required|email",
-            'password'=>"required"
-        ]);
+    $request->validate([
+        'email'=>"required|email",
+        'password'=>"required"
+    ]);
 
+    try {
         $token = auth()->attempt(['email'=>$request->email, 'password'=>$request->password],true);
         
-    
-
         if(!$token){
             session()->flash('error', 'Invalid Login Details');
             return redirect()->back();
@@ -62,14 +60,14 @@ Route::get('/signup', function () {
 });
 
 Route::post('/signup', function (Request $request) {
+    $request->validate([
+        'email'=>"email|required|unique:users",
+        'name'=>"required",
+        "password"=>"required",
+        "phone"=>"required|min:8|max:12"
+    ]);
+
     try {
-        $request->validate([
-            'email'=>"email|required|unique:users",
-            'name'=>"required",
-            "password"=>"required",
-            "phone"=>"required|min:8|max:12"
-        ]);
-    
         $user= User::create([
             'name'=> $request->name,
             'email'=> $request->email,
