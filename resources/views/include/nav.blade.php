@@ -218,6 +218,8 @@
             padding-top: 5px;
             padding-bottom: 5px;
             height: 200px;
+            min-height: fit-content;
+            max-height: fit-content;
             position: absolute ;
             border: 1px solid lightgray;
             z-index: 5000 !important;
