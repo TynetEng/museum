@@ -16,18 +16,14 @@
         @include('include.nav')
     </div>
     <div class="container-fluid">
+        {{--INTRODUCTORY IMAGE --}}
+        <div class="join">
+            <div class="intro"></div>
+            <div class="over"></div>
+        </div>
         <div class="container">
             <div class="parent">
-                {{--INTRODUCTORY IMAGE --}}
-                <div class="row">
-                    <div>
-
-                    </div>
-                </div>
-                
-                <div class="row teal">
-                    <img src="../image/m7.jpg" alt="">
-                </div>
+               
                 {{-- PART 1 --}}
                 <div class="row part1">
                     <div class="col-sm-6">
@@ -99,6 +95,9 @@
                             Museum, Scotland app. Use it to book a visit, to book a tourist
                             , speak to a culture strategist and loan an object.
                         </p>
+                        <div>
+                            <button class="down">DOWNLOAD</button>
+                        </div>
                     </div>
                     <div class="col-sm-6">
                         <img src="../image/mobile.png" alt="">
@@ -110,20 +109,19 @@
                     <h3>Today's Offers</h3>
                     <div class="pear">
                         <div class="pear1 col-sm-3">
-                            <div class="tag">
+                            <div>
+                                <img src="../image/m9.jpg" alt="">
                                 <div>
-                                    <img src="../image/m9.jpg" alt="">
-                                    <div>
-                                        <button class="pear-butt1">See Deal</button>
-                                    </div>
+                                    <button class="pear-butt1">See Deal</button>
                                 </div>
-                                <div class="sub-pear1">
-                                    <h5> Trip to Sculpture Room </h5>
-                                    <p> From heroes sculpture to activist sculpture</p>
-                                </div>
-                                <div>
-                                    <button class="pear-button">See Deal</button>
-                                </div>
+                            </div>
+                            <div class="sub-pear1">
+                                <h5> Trip to Sculpture Room </h5>
+                                <p> From heroes sculpture to activist sculpture, find more ways to culture and save when
+                                    you book them!</p>
+                            </div>
+                            <div>
+                                <button class="pear-button">See Deal</button>
                             </div>
                         </div>
                         <div class="pear1 col-sm-3">

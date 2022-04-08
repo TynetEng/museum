@@ -64,6 +64,7 @@
         </div>
     </div>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Sans&family=Playball&family=Source+Sans+Pro&display=swap');
         .container-fluid{
             margin: 0px;
             padding: 0px;
@@ -89,6 +90,8 @@
         }
         h5{
             color: #0061AB !important;
+            font-family: 'Playball';
+            font-weight: bold;
         }
         .part{
             margin-bottom: 10px;

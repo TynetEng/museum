@@ -19,7 +19,7 @@
     
                 <div class="cont">
                     <a href="/" class="navbar-brand">
-                        <h4>THE ROYAL MUSEUM,SCOTLAND</h4>
+                        <p class="headiee">THE ROYAL MUSEUM, SCOTLAND</p>
                     </a>
                 </div>
                 <div class="headie">
@@ -67,6 +67,7 @@
     </div>
 
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Sans&family=Playball&family=Source+Sans+Pro&display=swap');
         .parent{
             margin: auto;
             width: 30%;
@@ -95,6 +96,7 @@
         .cont{
             display: flex;
             justify-content: center;
+            text-align: center;
         }
         .logg{
             text-align: center;
@@ -109,9 +111,15 @@
             font-weight: bold;
         }
         .navbar-brand{
-            color: #0061AB;
             text-decoration: none;
+            text-align: center; 
         }
+        .headiee{
+            font-family: 'Playball';
+            font-weight: bold;
+            color: #0061AB;
+        }
+    
         .headie{
             text-align: center;
         }

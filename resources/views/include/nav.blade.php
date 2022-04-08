@@ -61,12 +61,12 @@
                                             </div>
                                         </div>
                                     </li>
-                                    <li class="nav-items">
+                                    {{-- <li class="nav-items">
                                         <a href="/admin" class="nav-link">
                                             <span></span>
                                             <span>ADMIN</span>
                                         </a>
-                                    </li>
+                                    </li> --}}
                                     <li class="nav-items">
                                         <a href="/login" class="nav-link">
                                             <span></span>
@@ -111,12 +111,12 @@
                                     LOAN AN OBJECT
                                 </a>
                             </li>
-                            <li class="nav-items">
+                            {{-- <li class="nav-items">
                                 <a href="/admin" class="nav-link">
                                     <span></span>
                                     <span>ADMIN</span>
                                 </a>
-                            </li>
+                            </li> --}}
                             <li class="nav-items">
                                 <a href="/login" class="nav-link">
                                     <span></span>
@@ -146,6 +146,8 @@
     </script>
 
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Sans&family=Playball&family=Source+Sans+Pro&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
         html,body{ 
             margin: 0px;
         }
@@ -163,7 +165,7 @@
             padding: 0px !important;
             margin: 0px !important;
             width: 100%;
-            z-index: 1000px;
+            z-index: 1000;
             margin: 0;
             justify-content: space-between;
             color: #0061AB !important;
@@ -173,6 +175,8 @@
         }
         h4{
             color: #0061AB !important;
+            font-family: 'Playball';
+            font-weight: bolder;
         }
         .nav{
             padding: 0px !important;
@@ -217,7 +221,7 @@
             line-height: 3.0;
             padding-top: 5px;
             padding-bottom: 5px;
-            height: 200px;
+            height: 250px;
             min-height: fit-content;
             max-height: fit-content;
             position: absolute ;
@@ -269,6 +273,8 @@
             }
             .sideBar a{
                 color: white;
+                font-family: 'Source Sans Pro';
+                font-weight: bold;
             }
             .left{
                 display: flex;

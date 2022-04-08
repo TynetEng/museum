@@ -1,10 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
 .container-fluid{
     padding: 0px;
     margin: 0px;
 }
+
+/* INTRO */
+.join {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+.intro{
+  background-image: url('../image/m7.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 120vh;
+  width: 100%;
+  position: relative;
+}
+.over{
+  position: absolute;  
+  height: 112vh;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
 .parent{
     margin-top: 65px;
     z-index: -1000 !important;
+    font-family: 'Source Sans Pro';
 }
 .teal{
     margin-bottom: 10px;
@@ -181,6 +209,13 @@ img{
   .app p{
       font-size: 17px;
   }
+  .down{
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 4px;
+  }
   .iframe{
     width: 40%;
   }
@@ -196,6 +231,7 @@ img{
       width: 100% !important;
       margin: 0px !important;
       padding: 0px !important;
+      margin-top: 10px !important;
     }
     .part1, .part2, .part3, .part4 p{
         line-height: 2.0;
