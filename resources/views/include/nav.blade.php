@@ -253,6 +253,11 @@
        
         /* @MEDIA */
         @media(max-width:760px){
+            .left{
+                display: flex;
+                align-items: center;;
+                padding: 0px
+            }
             .sideBar{
                 top: 0;
                 background-color: #0061AB;
