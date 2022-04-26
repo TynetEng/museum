@@ -230,3 +230,7 @@ Route::get('/print', function(){
     return view('print');
 });
 
+// USER GOOGLE LOGIN
+Route::get('/auth/redirect', 'App\Http\Controllers\UserSocialController@redirect');
+Route::get('/auth/google/callback', 'App\Http\Controllers\UserSocialController@callback');
+

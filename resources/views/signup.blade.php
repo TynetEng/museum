@@ -65,7 +65,7 @@
                         <span>OR</span>
                     </div>
                     <div class="google">
-                        <a href="{{url('/auth/redirect')}}">
+                        <a href="{{url('auth/redirect')}}">
                             <span><i class="fa fa-google"></i></span>
                             <span>Continue with Google</span>
                         </a>
