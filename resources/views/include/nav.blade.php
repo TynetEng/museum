@@ -74,7 +74,7 @@
                                         </a>
                                     </li>
                                     <li class="nav-items">
-                                        <a href="/LOGOUT" class="nav-link">
+                                        <a href="{{route('logout')}}" class="nav-link">
                                             <span></span>
                                             <span>LOGOUT</span>
                                         </a>
@@ -124,7 +124,7 @@
                                 </a>
                             </li>
                             <li class="nav-items">
-                                <a href="/LOGOUT" class="nav-link">
+                                <a href="{{route('logout')}}" class="nav-link">
                                     <span></span>
                                     <span>LOGOUT</span>
                                 </a>
@@ -257,6 +257,9 @@
                 display: flex;
                 align-items: center;;
                 padding: 0px
+            }
+            .navbar-brand{
+                padding-top: 15px !important;
             }
             .sideBar{
                 top: 0;

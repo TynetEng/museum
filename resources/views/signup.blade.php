@@ -14,7 +14,7 @@
         <div class="parent">
             <div class="card card-body shadow-sm">
     
-                <div class="cont">
+                <div class="cont text-center">
                     <a href="#" class="navbar-brand">
                         <p class="headiee">THE ROYAL MUSEUM, SCOTLAND</p>
                     </a>
@@ -36,7 +36,7 @@
                             <small class="text-danger">{{$message}}</small>
                         @enderror
                     </div>
-                    <div>
+                    <div class="form-group">
                         <label for="">Email</label>
                         <input type="text" name="email" value="{{old('email')}}" class="form-control {{$errors->has('email') ? 'is-inavlid' : '' }}">
                         @error('email')
@@ -50,10 +50,17 @@
                             <small class="text-danger">{{$message}}</small>
                         @enderror
                     </div>
-                    <div>
+                    <div class="form-group">
                         <label for="">Password</label>
                         <input type="password" value="{{old('password')}}"  name="password" class="form-control @error('password') is-inavlid @enderror">
                         @error('password')
+                            <small class="text-danger">{{$message}}</small>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="">Confirm Password</label>
+                        <input type="password" value="{{old('password_confirmation')}}" placeholder="Min. 5 characters" name="password_confirmation" class="form-control @error('password_confirmation') is-inavlid @enderror">
+                        @error('password_confirmation')
                             <small class="text-danger">{{$message}}</small>
                         @enderror
                     </div>
@@ -74,7 +81,7 @@
     
                 
                 <div class="pat1">
-                    <p>Already a user? <span><a href="./login">Login</a></span></p>
+                    <p>Already a user? <span><a href="./login" class="text-decoration-none">Login</a></span></p>
                 </div>
     
                 <div class="pat2">

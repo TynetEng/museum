@@ -17,12 +17,12 @@
         <div class="parent">
             <div class="card card-body shadow-sm">
     
-                <div class="cont">
+                <div class="cont text-center">
                     <a href="#" class="navbar-brand">
                         <h5>THE ROYAL MUSEUM, SCOTLAND</h5>
                     </a>
                 </div>
-                <div class="con">
+                <div class="con text-center">
                     <h6> SPEAK TO A CULTURE STRATEGIST</h6>
                 </div>
                 <form action="{{route('speak')}}" method="post">

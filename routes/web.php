@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,8 +65,9 @@ Route::post('/signup', function (Request $request) {
     $request->validate([
         'email'=>"email|required|unique:users",
         'name'=>"required",
-        "password"=>"required",
-        "phone"=>"required|min:8|max:12"
+        'password'=>'required|min:5|confirmed',
+        'password_confirmation'=>'required',
+        "phone"=>"required"
     ]);
 
     try {
@@ -82,6 +85,82 @@ Route::post('/signup', function (Request $request) {
     }
 
 })->name('signup');
+
+// FORGET PASSWORD --RESET PASSWORD
+Route::get('/password/request', function(){
+    return view('password.request');
+})->name('userRequest');
+
+Route::post('/password/request', function(Request $request){
+    $request->validate([
+        'email'=> 'required|email|exists:users,email'
+    ]);
+
+    $token = Str::random(64);
+    DB::table('password_resets')->insert([
+        'email'=> $request->email,
+        'token'=>$token,
+        'created_at'=> Carbon::now()
+    ]);
+
+    $action_link= route('password.reset', ['token'=>$token, 'email'=>$request->email]);
+    $body= "We have received a request to reset the password for <b> The Royal Museum, Scotland</b> account associated with
+    ".$request->email.". You can reset your password by clicking the link below";
+
+    Mail::send('email_forgot', ['action_link'=>$action_link, 'body'=>$body], function($message) use ($request){
+        $message->from('agbesuaoluwatoyin96@gmail.com', 'The Royal Museum, Scotland');
+        $message->to($request->email, 'Your name')
+                ->subject('Reset Password');
+    });
+    
+
+    return back()->with('success', 'We have e-mailed your password reset link!');
+})->name('send_password');
+
+Route::get('/password/reset/{token}', function(Request $request, $token=null){
+    return view('password.reset')->with(['token'=>$token, 'email'=>$request->email]);
+})->name('password.reset');
+
+Route::post('/password/reset', function(Request $request){
+    $request->validate([
+        'email'=>'required|email|exists:users,email',
+        'password'=>'required|min:5|confirmed',
+        'password_confirmation'=>'required'
+    ]);
+
+    $check_token = DB::table('password_resets')->where([
+        'email'=>$request->email,
+        'token'=>$request->token,
+    ])->first();
+
+    if(!$check_token){
+        return back()->withInput()->with('fail', 'Invalid Token');
+    }else{
+        User::where('email', $request->email)->update([
+            'password'=> Hash::make($request->password)
+        ]);
+
+        DB::table('password_resets')->where([
+            'email'=>$request->email
+        ])->delete();
+        
+        return redirect()->to('/login')
+        ->with('info', 'Your password has been changed! You can now login with the new password')
+        ->with(['verifiedEmail'=>$request->email]);
+    }
+})->name('resetPassword');
+
+// END FORGET PASSWORD --RESET PASSWORD
+
+// USER LOGOUT
+Route::get('/logout', function(Request $request){
+    Auth::logout();
+    $request->session()->invalidate();
+    $request->session()->regenerateToken();
+
+    return redirect('/login')
+    ->with('log', "You've successfully logout! Enter your details to login");
+})->name('logout');
 
 // BOOK-A-VISIT
 Route::get('/book-a-visit', function () {
