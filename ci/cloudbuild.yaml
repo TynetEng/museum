@@ -1,5 +1,5 @@
 steps:
-    name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: 'bash'
     args:
         - '-c'
@@ -9,3 +9,4 @@ steps:
           --project=the-royal-musuem-scotland
 
 timeout: '3600s'
+
