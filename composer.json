@@ -53,7 +53,7 @@
             "php artisan cache:clear"
         ]
             
-    
+        
     
     },
     "extra": {

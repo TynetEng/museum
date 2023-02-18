@@ -1,4 +1,4 @@
-runtime: php
+runtime: php 82
 env: flex
 
 runtime_config: document_root: web
