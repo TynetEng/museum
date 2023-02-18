@@ -1,6 +1,12 @@
-runtime: php
-env: flex
-
-handlers:
-- url: /.*
-  script: auto
+runtime: php  # language of the app
+ env: flex     # let app engine know we use flexible environment
+ runtime_config:
+    document_root: public   #folder where index.php is
+# Ensure we skip ".env", which is only for local development
+ skip_files:
+  .env #we want to skip this to make sure we don’t mess stuff up on the server
+ env_variables:
+ # Put production environment variables here.
+  APP_KEY: base64:LLVZ+14ZZS7BrIYx80TUabVc8dzX7rk0IzYZJWnNk+g=
+  APP_LOG: errorlog
+  STORAGE_DIR: /tmp
