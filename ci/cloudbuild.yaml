@@ -16,9 +16,11 @@ steps:
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
  
   args:
-  - '-v'
-  - 'version'
-  - '--promote'
-  - '--project=the-royal-musuem-scotland'
-  - 'app.yaml'
+  - '-c'
+        - |
+          gcloud config set app/cloud_build_timeout 36000 \
+          && gcloud app deploy -q --promote -v=$BUILD_ID \
+          --project=the-royal-musuem-scotland
+
+timeout: '3600s'
 
