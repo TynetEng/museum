@@ -13,10 +13,8 @@
 
 steps:
 # Install dependencies
-- name: 'gcr.io/cloud-builders/composer'
-  args: ['install']
-# Build and deploy the app
-- name: 'gcr.io/google-appengine/deploy'
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+ 
   args:
   - '-v'
   - 'version'
