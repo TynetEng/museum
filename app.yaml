@@ -1,26 +1,40 @@
-runtime: php
-env: flex
+# runtime: php
+# env: flex
 
-runtime_config: document_root: web
+# runtime_config: document_root: web
 
+# # Ensure we skip ".env", which is only for local development
+# skip_files: 
+#     - .env
+
+# automatic_scaling:
+#     min_num_instances: 1
+#     max_num_instances: 1
+
+# resources:
+#     cpu: 2
+#     memory_gb: 4
+#     disk_size_gb: 100
+
+# env_variables:
+#     # Put production environment variables here.
+#     APP_DEBUG: true
+#     APP_ENV: production
+#     APP_KEY: base64:/RWv7zZg2Lk+WMmzpsH1I2pl0zyrEFI3JMQzqDRScJ4=
+#     APP_NAME: "GCP App - CODE"
+
+#     LOG_LEVEL: debug
+
+
+runtime: php  # language of the app
+ env: flex     # let app engine know we use flexible environment
+ runtime_config:
+    document_root: public   #folder where index.php is
 # Ensure we skip ".env", which is only for local development
-skip_files: 
-    - .env
-
-automatic_scaling:
-    min_num_instances: 1
-    max_num_instances: 1
-
-resources:
-    cpu: 2
-    memory_gb: 4
-    disk_size_gb: 100
-
-env_variables:
-    # Put production environment variables here.
-    APP_DEBUG: true
-    APP_ENV: production
-    APP_KEY: base64:/RWv7zZg2Lk+WMmzpsH1I2pl0zyrEFI3JMQzqDRScJ4=
-    APP_NAME: "GCP App - CODE"
-
-    LOG_LEVEL: debug
+ skip_files:
+  .env #we want to skip this to make sure we don’t mess stuff up on the server
+ env_variables:
+ # Put production environment variables here.
+  APP_KEY: base64:LLVZ+14ZZS7BrIYx80TUabVc8dzX7rk0IzYZJWnNk+g=
+  APP_LOG: errorlog
+  STORAGE_DIR: /tmp
