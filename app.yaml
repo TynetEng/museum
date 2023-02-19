@@ -45,12 +45,6 @@ env: flex
 runtime_config:
   document_root: .
 
-env_variables:
-  # Set environment variables
-  .env
-
-
-
 # Set up handlers for requests
 handlers:
 - url: /index\.php
