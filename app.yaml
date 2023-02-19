@@ -43,7 +43,11 @@ runtime: php
 env: flex
 
 runtime_config:
-  document_root: .
+  document_root: public
+
+automatic_scaling:
+    min_num_instances: 1
+    max_num_instances: 1
 
 # Set up handlers for requests
 handlers:
