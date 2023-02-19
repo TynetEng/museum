@@ -1,12 +1,26 @@
-steps:
-  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-    entrypoint: 'bash'
-    args:
-        - '-c'
-        - |
-          gcloud config set app/cloud_build_timeout 36000 \
-          && gcloud app deploy -q --promote -v=433891215877 \
-          --project=the-royal-musuem-scotland
+# steps:
+#   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+#     entrypoint: 'bash'
+#     args:
+#         - '-c'
+#         - |
+#           gcloud config set app/cloud_build_timeout 36000 \
+#           && gcloud app deploy -q --promote -v=$BUILD_ID \
+#           --project=the-royal-musuem-scotland
 
-timeout: '3600s'
+# timeout: '3600s'
+
+
+steps:
+# Install dependencies
+- name: 'gcr.io/cloud-builders/composer'
+  args: ['install']
+# Build and deploy the app
+- name: 'gcr.io/google-appengine/deploy'
+  args:
+  - '-v'
+  - 'version'
+  - '--promote'
+  - '--project=the-royal-musuem-scotland'
+  - 'app.yaml'
 
