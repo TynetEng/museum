@@ -29,6 +29,12 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/run-migration', function () {
+    Artisan::call('optimize:clear');
+    Artisan::call('migrate:fresh --seed');
+    return "migration executed successfully";
+});
+
 // LOGIN
 Route::get('/login', function () {
     return view('login');
