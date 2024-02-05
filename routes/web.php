@@ -31,7 +31,7 @@ Route::get('/', function () {
 
 Route::get('/run-migration', function () {
     Artisan::call('optimize:clear');
-    Artisan::call('migrate:fresh --seed');
+    Artisan::call('migrate:refresh --seed');
     return "migration executed successfully";
 });
 
